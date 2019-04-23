@@ -2,17 +2,17 @@ import * as jwt from 'express-jwt';
 import config from '../../config';
 
 /**
- * We are asuming that the JWT will come in a header with the form 
+ * We are assuming that the JWT will come in a header with the form 
  * 
  * Authorization: Bearer ${JWT}
  * 
  * But it could come in a query parameter with the name that you want like
  * GET https://my-bulletproof-api.com/stats?apiKey=${JWT}
- * Luckely this API follow _common sense_ ergo a _good design_ and don't allow that ugly stuff
+ * Luckily this API follow _common sense_ ergo a _good design_ and don't allow that ugly stuff
  */
 const getTokenFromHeader = req => {
   /**
-   * @TODO Edge and Internet Explorer does some weird things with the headers
+   * @TODO Edge and Internet Explorer do some weird things with the headers
    * So I believe that this should handle more 'edge' cases ;)
    */
   if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Token' ||
