@@ -50,7 +50,7 @@ export default class UserSubscriber {
       console.log(`🔥 Error on event ${events.user.signUp}`)
       console.log(e);
 
-      // Throw the error so the process die (check src/app.ts)
+      // Throw the error so the process dies (check src/app.ts)
       throw e;
     }
   }
