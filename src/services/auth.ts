@@ -52,7 +52,7 @@ export default class AuthService {
       /** 
        * @TODO This is not the best way to deal with this
        * There should exist a 'Mapper' layer 
-       * that transform data from layer to layer
+       * that transforms data from layer to layer
        * but that's too over-engineering for now
        */
       const user = userRecord.toObject();
@@ -96,10 +96,10 @@ export default class AuthService {
     exp.setDate(today.getDate() + 60);
 
     /**
-     * A JWT means JSON Web Token, so basically is a json that is _hashed_ into a string
+     * A JWT means JSON Web Token, so basically it's a json that is _hashed_ into a string
      * The cool thing is that you can add custom properties a.k.a metadata
      * Here we are adding the userId, role and name
-     * Beware that the metadata it's public and can be decoded without _the secret_
+     * Beware that the metadata is public and can be decoded without _the secret_
      * but the client cannot craft a JWT to fake a userId 
      * because it doesn't have _the secret_ to sign it
      * more information here: https://softwareontheroad.com/you-dont-need-passport

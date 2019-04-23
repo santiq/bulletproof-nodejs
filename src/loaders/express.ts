@@ -16,7 +16,7 @@ export default async ({ app }: { app: express.Application }) => {
   app.enable('trust proxy'); 
 
   // The magic package that prevents frontend developers going nuts
-  // Alternated description: 
+  // Alternate description: 
   // Enable Cross Origin Resource Sharing to all origins by default
   app.use(cors());
 
@@ -25,7 +25,7 @@ export default async ({ app }: { app: express.Application }) => {
   // Maybe not needed anymore ?
   app.use(require('method-override')());
 
-  // Middleware that transform the raw string of req.body into a json 
+  // Middleware that transforms the raw string of req.body into json 
   app.use(bodyParser.json());
 
 
