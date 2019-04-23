@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+       - image: circleci/node:10.15
+       - image: circleci/mongo:latest
+    steps:
+      - checkout
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: test
+          command: npm test
