@@ -3,6 +3,7 @@ import { Container } from 'typedi';
 import AuthService from '../../services/auth';
 import { IUserInputDTO } from '../../interfaces/IUser';
 import middlewares from '../middlewares';
+import { celebrate, Joi } from 'celebrate';
 
 const route = Router();
 
@@ -10,18 +11,33 @@ export default (app) => {
 
   app.use('/auth', route);
 
-  route.post('/signup', async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const authServiceInstance = Container.get(AuthService);
-      const { user, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
-      return res.json({ user, token }).status(201);
-    } catch (e) {
-      console.log('🔥 error ', e);
-      return next(e);
-    }
+  route.post('/signup', 
+    celebrate({
+      body: Joi.object({
+        name: Joi.string().required(),
+        email: Joi.string().required(),
+        password: Joi.string().required(),
+      }),
+    }),
+    async (req: Request, res: Response, next: NextFunction) => {
+      try {
+        const authServiceInstance = Container.get(AuthService);
+        const { user, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
+        return res.json({ user, token }).status(201);
+      } catch (e) {
+        console.log('🔥 error ', e);
+        return next(e);
+      }
   });
 
-  route.post('/signin', async (req: Request, res: Response, next: NextFunction) => {
+  route.post('/signin', 
+    celebrate({
+      body: Joi.object({
+        email: Joi.string().required(),
+        password: Joi.string().required(),
+      }),
+    }),
+    async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { email, password } = req.body;
       const authServiceInstance = Container.get(AuthService);
