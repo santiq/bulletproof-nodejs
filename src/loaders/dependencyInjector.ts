@@ -2,7 +2,7 @@ import { Container } from 'typedi';
 
 import agendaFactory from './agenda';
 
-export default async ({ mongoConnection, models }: { mongoConnection, models: Array<{ name: string, model: any }> }) => {
+export default ({ mongoConnection, models }: { mongoConnection, models: Array<{ name: string, model: any }> }) => {
   try {
 
     models.forEach((m) => {

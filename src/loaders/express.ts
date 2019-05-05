@@ -3,7 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import routes from '../api';
 import config from '../config';
-export default async ({ app }: { app: express.Application }) => {
+export default ({ app }: { app: express.Application }) => {
   /**
    * Health Check endpoints
    * @TODO Explain why they are here
