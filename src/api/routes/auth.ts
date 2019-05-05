@@ -6,8 +6,8 @@ import middlewares from '../middlewares';
 
 const route = Router();
 
-export default (app) => {
-
+export default (app: Router) => {
+  
   app.use('/auth', route);
 
   route.post('/signup', async (req: Request, res: Response, next: NextFunction) => {
@@ -23,7 +23,7 @@ export default (app) => {
 
   route.post('/signin', async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { email, password } = req.body;
+      const { email, password }: { [key: string]: string } = req.body;
       const authServiceInstance = Container.get(AuthService);
       const { user, token } = await authServiceInstance.SignIn(email, password);
       return res.json({ user, token }).status(200);
