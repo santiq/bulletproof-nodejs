@@ -3,7 +3,7 @@ import MailerService from '../services/mailer';
 
 export default class EmailSequenceJob {
 
-  public async handler(job, done): Promise<any> {
+  public async handler(job, done): Promise<void> {
     console.log('✌️ Email Sequence Job triggered!');
     try {
       const { email, name } = job.data;

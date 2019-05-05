@@ -3,7 +3,7 @@ import config from '../config';
 import { Collection } from 'mongoose';
 
 export default ({ mongoConnection, }) => {
-  const agenda = (new Agenda() as any);
+  const agenda = new Agenda();
 
   /**
    * This voodoo magic is proper from agenda.js so I'm not gonna explain too much here.
