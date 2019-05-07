@@ -1,5 +1,5 @@
-import { Service } from "typedi";
-import { IUser } from "../interfaces/IUser";
+import { Service } from 'typedi';
+import { IUser } from '../interfaces/IUser';
 
 @Service()
 export default class MailerService {
@@ -10,8 +10,8 @@ export default class MailerService {
     return { delivered: 1, status: 'ok' };
   }
   public async StartEmailSequence(sequence: string, user: Partial<IUser>): Promise<any> {
-    if(!user.email) {
-      throw new Error('No email provided')
+    if (!user.email) {
+      throw new Error('No email provided');
     }
     // @TODO Add example of an email sequence implementation
     // Something like

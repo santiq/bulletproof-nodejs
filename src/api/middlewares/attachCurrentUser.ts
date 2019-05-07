@@ -20,7 +20,7 @@ const attachCurrentUser = async (req, res, next) => {
     Reflect.deleteProperty(currentUser, 'salt');
     req.currentUser = currentUser;
     return next();
-  } catch(e) {
+  } catch (e) {
     console.log('🔥 Error attaching user to req');
     console.log(e);
     return next(e);
