@@ -3,13 +3,13 @@ import { IUser } from "../interfaces/IUser";
 
 @Service()
 export default class MailerService {
-  public async SendWelcomeEmail(user: Partial<IUser>): Promise<any> {
+  public SendWelcomeEmail(user: Partial<IUser>) {
     /**
      * @TODO Call Mailchimp/Sendgrid or whatever
      */
     return { delivered: 1, status: 'ok' };
   }
-  public async StartEmailSequence(sequence: string, user: Partial<IUser>): Promise<any> {
+  public StartEmailSequence(sequence: string, user: Partial<IUser>) {
     if(!user.email) {
       throw new Error('No email provided')
     }
