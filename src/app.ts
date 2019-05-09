@@ -5,7 +5,6 @@ import config from './config';
 import * as express from 'express';
 
 async function startServer() {
-
   const app = express();
 
   /**

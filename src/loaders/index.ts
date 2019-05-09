@@ -17,8 +17,8 @@ export default async ({ expressApp }) => {
 
   const userModel = {
     name: 'userModel',
-    // Notice the require syntax and the '.default' 
-    model: require('../models/user').default
+    // Notice the require syntax and the '.default'
+    model: require('../models/user').default,
   };
 
   // It returns the agenda instance because it's needed in the subsequent loaders
@@ -28,7 +28,7 @@ export default async ({ expressApp }) => {
       userModel,
       // salaryModel,
       // whateverModel
-    ]
+    ],
   });
   console.log('✌️ Dependency Injector loaded');
 
@@ -37,5 +37,4 @@ export default async ({ expressApp }) => {
 
   await expressLoader({ app: expressApp });
   console.log('✌️ Express loaded');
-}
-
+};

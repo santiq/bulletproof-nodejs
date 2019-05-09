@@ -8,7 +8,11 @@
     "heroku-postbuild": "npm run build",
     "start": "nodemon",
     "inspect": "nodemon --inspect src/app.ts",
-    "test": "jest"
+    "test": "jest",
+    "lint": "npm run lint:js ",
+    "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
+    "lint:js": "npm run lint:eslint src/",
+    "lint:fix": "npm run lint:js -- --fix"
   },
   "repository": {
     "type": "git",
@@ -49,12 +53,18 @@
     "typedi": "^0.8.0"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.8",
     "@types/lodash": "^4.14.118",
     "@types/mongoose": "^5.3.17",
     "@types/node": "^10.12.9",
-    "@types/express": "^4.16.0",
-    "@types/jest": "^23.3.8",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
     "jest": "^24.1.0",
+    "prettier": "^1.17.0",
     "ts-jest": "^24.0.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
