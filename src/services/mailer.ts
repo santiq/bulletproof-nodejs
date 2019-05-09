@@ -10,8 +10,8 @@ export default class MailerService {
     return { delivered: 1, status: 'ok' };
   }
   public StartEmailSequence(sequence: string, user: Partial<IUser>) {
-    if(!user.email) {
-      throw new Error('No email provided')
+    if (!user.email) {
+      throw new Error('No email provided');
     }
     // @TODO Add example of an email sequence implementation
     // Something like
