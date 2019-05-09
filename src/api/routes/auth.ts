@@ -7,7 +7,7 @@ import { celebrate, Joi } from 'celebrate';
 
 const route = Router();
 
-export default app => {
+export default (app: Router) => {
   app.use('/auth', route);
 
   route.post(
@@ -61,7 +61,7 @@ export default app => {
    * emitted for the session and add it to a black list.
    * It's really annoying to develop that but if you had to, please use Redis as your data store
    */
-  route.post('/logout', middlewares.isAuth, async (req: Request, res: Response, next: NextFunction) => {
+  route.post('/logout', middlewares.isAuth, (req: Request, res: Response, next: NextFunction) => {
     try {
       //@TODO AuthService.Logout(req.user) do some clever stuff
       return res.status(200).end();
