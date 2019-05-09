@@ -8,7 +8,7 @@ export default class EmailSequenceJob {
     try {
       const { email, name }: { [key: string]: string } = job.data;
       const mailerServiceInstance = Container.get(MailerService);
-      await mailerServiceInstance.StartEmailSequence(email, name as any); // Here you are passing name but in the function you spect user
+      await mailerServiceInstance.StartEmailSequence('WelcomeSequence', { email, name});
       done();
     } catch (e) {
       console.log('🔥 Error with Email Sequence Job');

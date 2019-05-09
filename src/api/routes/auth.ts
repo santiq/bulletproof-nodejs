@@ -23,7 +23,7 @@ export default (app: Router) => {
 
   route.post('/signin', async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { email, password }: { [key: string]: string } = req.body;
+      const { email, password } = req.body;
       const authServiceInstance = Container.get(AuthService);
       const { user, token } = await authServiceInstance.SignIn(email, password);
       return res.json({ user, token }).status(200);
