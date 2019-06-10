@@ -2,10 +2,10 @@ import expressLoader from './express';
 import dependencyInjectorLoader from './dependencyInjector';
 import mongooseLoader from './mongoose';
 import jobsLoader from './jobs';
-
+import Logger from './logger';
 export default async ({ expressApp }) => {
   const mongoConnection = await mongooseLoader();
-  console.log('✌️ DB loaded and connected!');
+  Logger.debug('✌️ DB loaded and connected!');
 
   /**
    * WTF is going on here?
@@ -30,11 +30,11 @@ export default async ({ expressApp }) => {
       // whateverModel
     ],
   });
-  console.log('✌️ Dependency Injector loaded');
+  Logger.debug('✌️ Dependency Injector loaded');
 
   await jobsLoader({ agenda });
-  console.log('✌️ Jobs loaded');
+  Logger.debug('✌️ Jobs loaded');
 
   await expressLoader({ app: expressApp });
-  console.log('✌️ Express loaded');
+  Logger.debug('✌️ Express loaded');
 };

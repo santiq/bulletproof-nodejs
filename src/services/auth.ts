@@ -8,7 +8,11 @@ import { IUser, IUserInputDTO } from '../interfaces/IUser';
 
 @Service()
 export default class AuthService {
-  constructor(@Inject('userModel') private userModel, private mailer: MailerService) {}
+  constructor(
+      @Inject('userModel') private userModel,
+      private mailer: MailerService,
+      @Inject('logger') private logger,
+    ) {}
 
   public async SignUp(userInputDTO: IUserInputDTO): Promise<{ user: IUser; token: string }> {
     try {
@@ -56,7 +60,7 @@ export default class AuthService {
       Reflect.deleteProperty(user, 'salt');
       return { user, token };
     } catch (e) {
-      console.log(e);
+      this.logger.warn(e);
       throw e;
     }
   }

@@ -20,12 +20,13 @@ export default (app: Router) => {
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
+      const logger = Container.get('logger');
       try {
         const authServiceInstance = Container.get(AuthService);
         const { user, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
         return res.json({ user, token }).status(201);
       } catch (e) {
-        console.log('🔥 error ', e);
+        logger.warn('🔥 error ', e);
         return next(e);
       }
     },
@@ -40,13 +41,14 @@ export default (app: Router) => {
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
+      const Logger = Container.get('logger');
       try {
         const { email, password } = req.body;
         const authServiceInstance = Container.get(AuthService);
         const { user, token } = await authServiceInstance.SignIn(email, password);
         return res.json({ user, token }).status(200);
       } catch (e) {
-        console.log('🔥 error ', e);
+        Logger.warn('🔥 error ', e);
         return next(e);
       }
     },
@@ -62,11 +64,12 @@ export default (app: Router) => {
    * It's really annoying to develop that but if you had to, please use Redis as your data store
    */
   route.post('/logout', middlewares.isAuth, (req: Request, res: Response, next: NextFunction) => {
+    const Logger = Container.get('logger');
     try {
       //@TODO AuthService.Logout(req.user) do some clever stuff
       return res.status(200).end();
     } catch (e) {
-      console.log('🔥 error ', e);
+      Logger.warn('🔥 error ', e);
       return next(e);
     }
   });

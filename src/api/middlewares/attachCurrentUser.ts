@@ -9,6 +9,7 @@ import { IUser } from '../../interfaces/IUser';
  * @param {*} next  Express next Function
  */
 const attachCurrentUser = async (req, res, next) => {
+  const Logger = Container.get('logger');
   try {
     const UserModel = Container.get('userModel') as mongoose.Model<IUser & mongoose.Document>;
     const userRecord = await UserModel.findById(req.token._id);
@@ -21,8 +22,8 @@ const attachCurrentUser = async (req, res, next) => {
     req.currentUser = currentUser;
     return next();
   } catch (e) {
-    console.log('🔥 Error attaching user to req');
-    console.log(e);
+    Logger.warn('🔥 Error attaching user to req');
+    Logger.warn(e);
     return next(e);
   }
 };

@@ -18,13 +18,15 @@ export default class UserSubscriber {
    */
   @On(events.user.signIn)
   public onUserSignIn({ _id }: Partial<IUser>) {
+    const Logger = Container.get('logger');
+
     try {
       const UserModel = Container.get('UserModel') as mongoose.Model<IUser & mongoose.Document>;
 
       UserModel.update({ _id }, { $set: { lastLogin: new Date() } });
     } catch (e) {
-      console.log(`🔥 Error on event ${events.user.signIn}`);
-      console.log(e);
+      Logger.warn(`🔥 Error on event ${events.user.signIn}`);
+      Logger.warn(e);
 
       // Throw the error so the process die (check src/app.ts)
       throw e;
@@ -32,6 +34,8 @@ export default class UserSubscriber {
   }
   @On(events.user.signUp)
   public onUserSignUp({ name, email, _id }: Partial<IUser>) {
+    const Logger = Container.get('logger');
+
     try {
       /**
        * @TODO implement this
@@ -42,8 +46,8 @@ export default class UserSubscriber {
       // Start your email sequence or whatever
       // MailService.startSequence('user.welcome', { email, name })
     } catch (e) {
-      console.log(`🔥 Error on event ${events.user.signUp}`);
-      console.log(e);
+      Logger.warn(`🔥 Error on event ${events.user.signUp}`);
+      Logger.warn(e);
 
       // Throw the error so the process dies (check src/app.ts)
       throw e;
