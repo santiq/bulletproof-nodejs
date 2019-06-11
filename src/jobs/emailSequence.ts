@@ -11,8 +11,7 @@ export default class EmailSequenceJob {
       await mailerServiceInstance.StartEmailSequence('WelcomeSequence', { email, name });
       done();
     } catch (e) {
-      Logger.warn('🔥 Error with Email Sequence Job');
-      Logger.warn(e);
+      Logger.error('🔥 Error with Email Sequence Job: %o', e);
       done(e);
     }
   }

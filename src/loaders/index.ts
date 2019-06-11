@@ -5,7 +5,7 @@ import jobsLoader from './jobs';
 import Logger from './logger';
 export default async ({ expressApp }) => {
   const mongoConnection = await mongooseLoader();
-  Logger.debug('✌️ DB loaded and connected!');
+  Logger.info('✌️ DB loaded and connected!');
 
   /**
    * WTF is going on here?
@@ -30,11 +30,11 @@ export default async ({ expressApp }) => {
       // whateverModel
     ],
   });
-  Logger.debug('✌️ Dependency Injector loaded');
+  Logger.info('✌️ Dependency Injector loaded');
 
   await jobsLoader({ agenda });
-  Logger.debug('✌️ Jobs loaded');
+  Logger.info('✌️ Jobs loaded');
 
   await expressLoader({ app: expressApp });
-  Logger.debug('✌️ Express loaded');
+  Logger.info('✌️ Express loaded');
 };

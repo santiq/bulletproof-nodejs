@@ -19,11 +19,11 @@ async function startServer() {
 
   app.listen(config.port, err => {
     if (err) {
-      Logger.warn(err);
+      Logger.error(err);
       process.exit(1);
       return;
     }
-    Logger.debug(`
+    Logger.info(`
       ################################################
       🛡️  Server listening on port: ${config.port} 🛡️ 
       ################################################
