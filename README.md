@@ -66,7 +66,7 @@ It uses nodemon for livereloading :peace-fingers:
 - [x] API Validation layer (Celebrate+Joi)
 - [ ] Unit tests examples
 - [ ] [Cluster mode](https://softwareontheroad.com/nodejs-scalability-issues?utm_source=github&utm_medium=readme)
-- [ ] The logging _'layer'_ 
+- [x] The logging _'layer'_ 
 - [ ] Add ageda dashboard
 - [x] Continuous integration with CircleCI 😍
 - [ ] Deploys script and docs for AWS Elastic Beanstalk and Heroku

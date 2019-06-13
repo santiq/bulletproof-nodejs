@@ -28,10 +28,9 @@ export default {
 
   /**
    * Used by winston logger
-   * @TODO Wait for it...
    */
   logs: {
-    level: process.env.LOG_LEVEL,
+    level: process.env.LOG_LEVEL || 'silly',
   },
 
   /**
