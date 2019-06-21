@@ -25,7 +25,7 @@ export default (app: Router) => {
       try {
         const authServiceInstance = Container.get(AuthService);
         const { user, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
-        return res.json({ user, token }).status(201);
+        return res.status(201).json({ user, token });
       } catch (e) {
         logger.error('🔥 error: %o', e);
         return next(e);
