@@ -9,10 +9,10 @@ import { IUser, IUserInputDTO } from '../interfaces/IUser';
 @Service()
 export default class AuthService {
   constructor(
-      @Inject('userModel') private userModel,
-      private mailer: MailerService,
-      @Inject('logger') private logger,
-    ) {}
+    @Inject('userModel') private userModel: Models.UserModel,
+    private mailer: MailerService,
+    @Inject('logger') private logger,
+  ) {}
 
   public async SignUp(userInputDTO: IUserInputDTO): Promise<{ user: IUser; token: string }> {
     try {
@@ -42,6 +42,7 @@ export default class AuthService {
         salt: salt.toString('hex'),
         password: hashedPassword,
       });
+
       this.logger.silly('Generating JWT');
       const token = this.generateToken(userRecord);
 

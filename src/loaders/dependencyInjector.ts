@@ -11,7 +11,7 @@ export default ({ mongoConnection, models }: { mongoConnection; models: { name: 
     const agendaInstance = agendaFactory({ mongoConnection });
 
     Container.set('agendaInstance', agendaInstance);
-    Container.set('logger', LoggerInstance)
+    Container.set('logger', LoggerInstance);
 
     LoggerInstance.info('✌️ Agenda injected into container');
 
