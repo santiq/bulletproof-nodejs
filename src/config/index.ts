@@ -43,6 +43,13 @@ export default {
   },
 
   /**
+   * Agendash config
+   */
+  agendash: {
+    user: 'agendash',
+    password: '123456'
+  },
+  /**
    * API configs
    */
   api: {
