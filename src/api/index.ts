@@ -1,9 +1,14 @@
 import { Router } from 'express';
 import auth from './routes/auth';
 import user from './routes/user';
+import agendash from './routes/agendash';
 
-const app = Router();
-auth(app);
-user(app);
+// guaranteed to get dependencies
+export default () => {
+	const app = Router();
+	auth(app);
+	user(app);
+	agendash(app);
 
-export default app;
+	return app
+}

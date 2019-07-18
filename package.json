@@ -32,6 +32,7 @@
   "license": "ISC",
   "dependencies": {
     "agenda": "^2.0.2",
+    "agendash": "^1.0.0",
     "argon2": "^0.21.0",
     "body-parser": "^1.18.2",
     "celebrate": "^9.1.0",
