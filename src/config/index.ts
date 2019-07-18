@@ -39,7 +39,7 @@ export default {
   agenda: {
     dbCollection: process.env.AGENDA_DB_COLLECTION,
     pooltime: process.env.AGENDA_POOL_TIME,
-    concurrency: process.env.AGENDA_CONCURRENCY,
+    concurrency: parseInt(process.env.AGENDA_CONCURRENCY, 10),
   },
 
   /**
