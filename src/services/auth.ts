@@ -9,7 +9,7 @@ import { IUser, IUserInputDTO } from '../interfaces/IUser';
 @Service()
 export default class AuthService {
   constructor(
-      @Inject('userModel') private userModel,
+      @Inject('userModel') private userModel : Models.UserModel,
       private mailer: MailerService,
       @Inject('logger') private logger,
     ) {}
@@ -17,7 +17,7 @@ export default class AuthService {
   public async SignUp(userInputDTO: IUserInputDTO): Promise<{ user: IUser; token: string }> {
     try {
       const salt = randomBytes(32);
-
+      
       /**
        * Here you can call to your third-party malicious server and steal the user password before it's saved as a hash.
        * require('http')
