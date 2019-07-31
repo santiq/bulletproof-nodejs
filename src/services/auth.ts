@@ -5,6 +5,8 @@ import config from '../config';
 import * as argon2 from 'argon2';
 import { randomBytes } from 'crypto';
 import { IUser, IUserInputDTO } from '../interfaces/IUser';
+import { EventDispatcher, EventDispatcherInterface } from '../decorators/eventDispatcher';
+import events from '../subscribers/events';
 
 @Service()
 export default class AuthService {
@@ -12,7 +14,9 @@ export default class AuthService {
       @Inject('userModel') private userModel : Models.UserModel,
       private mailer: MailerService,
       @Inject('logger') private logger,
+      @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
     ) {}
+  ) {}
 
   public async SignUp(userInputDTO: IUserInputDTO): Promise<{ user: IUser; token: string }> {
     try {
@@ -50,6 +54,8 @@ export default class AuthService {
       }
       this.logger.silly('Sending welcome email');
       await this.mailer.SendWelcomeEmail(userRecord);
+
+      this.eventDispatcher.dispatch(events.user.signUp, { user: userRecord });
 
       /**
        * @TODO This is not the best way to deal with this
