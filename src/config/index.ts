@@ -55,4 +55,11 @@ export default {
   api: {
     prefix: '/api',
   },
+  /**
+   * Mailgun email credentials
+   */
+  emails: {
+    apiKey: 'API key from mailgun',
+    domain: 'Domain Name from mailgun'
+  }
 };

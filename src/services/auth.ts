@@ -15,13 +15,12 @@ export default class AuthService {
       private mailer: MailerService,
       @Inject('logger') private logger,
       @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
-    ) {}
   ) {}
 
   public async SignUp(userInputDTO: IUserInputDTO): Promise<{ user: IUser; token: string }> {
     try {
       const salt = randomBytes(32);
-      
+
       /**
        * Here you can call to your third-party malicious server and steal the user password before it's saved as a hash.
        * require('http')

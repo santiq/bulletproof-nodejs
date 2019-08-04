@@ -1,12 +1,25 @@
-import { Service } from 'typedi';
+import { Service, Inject } from 'typedi';
 import { IUser } from '../interfaces/IUser';
 
 @Service()
 export default class MailerService {
-  public SendWelcomeEmail(user: Partial<IUser>) {
+  constructor(
+    @Inject('emailClient') private emailClient
+  ) {}
+
+  public SendWelcomeEmail(email) {
     /**
      * @TODO Call Mailchimp/Sendgrid or whatever
      */
+    // Added example for sending mail from mailgun
+    const data = {
+      from: 'Excited User <me@samples.mailgun.org>',
+      to: email, //your email address
+      subject: 'Hello',
+      text: 'Testing some Mailgun awesomness!'
+    };
+
+    this.emailClient.messages().send(data);
     return { delivered: 1, status: 'ok' };
   }
   public StartEmailSequence(sequence: string, user: Partial<IUser>) {

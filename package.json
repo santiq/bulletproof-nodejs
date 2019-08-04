@@ -46,6 +46,7 @@
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.2.0",
     "lodash": "^4.17.13",
+    "mailgun-js": "^0.22.0",
     "method-override": "^3.0.0",
     "moment": "^2.23.0",
     "moment-timezone": "^0.5.23",
