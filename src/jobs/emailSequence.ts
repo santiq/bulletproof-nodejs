@@ -6,7 +6,7 @@ export default class EmailSequenceJob {
     const Logger = Container.get('logger');
     try {
       Logger.debug('✌️ Email Sequence Job triggered!');
-      const { email, name }: { [key: string]: string } = job.data;
+      const { email, name }: { [key: string]: string } = job.attrs.data;
       const mailerServiceInstance = Container.get(MailerService);
       await mailerServiceInstance.StartEmailSequence('WelcomeSequence', { email, name });
       done();
