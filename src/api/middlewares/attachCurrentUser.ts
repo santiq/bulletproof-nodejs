@@ -1,5 +1,5 @@
 import { Container } from 'typedi';
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import { IUser } from '../../interfaces/IUser';
 
 /**

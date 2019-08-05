@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import { Db } from 'mongodb';
 import config from '../config';
 

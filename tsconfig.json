@@ -19,7 +19,8 @@
     "sourceMap": true,
     "outDir": "./build",
     "allowJs": true,
-    "noEmit": false
+    "noEmit": false,
+    "esModuleInterop": true
   },
   "include": [
     "./src/**/*"
