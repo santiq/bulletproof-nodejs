@@ -1,8 +1,8 @@
 import { Service, Inject } from 'typedi';
-import * as jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import MailerService from './mailer';
 import config from '../config';
-import * as argon2 from 'argon2';
+import argon2 from 'argon2';
 import { randomBytes } from 'crypto';
 import { IUser, IUserInputDTO } from '../interfaces/IUser';
 import { EventDispatcher, EventDispatcherInterface } from '../decorators/eventDispatcher';

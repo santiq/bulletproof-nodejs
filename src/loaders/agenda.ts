@@ -1,4 +1,4 @@
-import * as Agenda from 'agenda';
+import Agenda from 'agenda';
 import config from '../config';
 
 export default ({ mongoConnection }) => {
