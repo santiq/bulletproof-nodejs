@@ -2,7 +2,7 @@ import { Container } from 'typedi';
 import LoggerInstance from './logger';
 import agendaFactory from './agenda';
 import config from '../config';
-import * as mailgun from 'mailgun-js';
+import mailgun from 'mailgun-js';
 
 export default ({ mongoConnection, models }: { mongoConnection; models: { name: string; model: any }[] }) => {
   try {
