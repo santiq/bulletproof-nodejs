@@ -5,9 +5,9 @@ import { IUser } from '../interfaces/IUser';
 export default class MailerService {
   constructor(
     @Inject('emailClient') private emailClient
-  ) {}
+  ) { }
 
-  public SendWelcomeEmail(email) {
+  public async SendWelcomeEmail(email) {
     /**
      * @TODO Call Mailchimp/Sendgrid or whatever
      */
