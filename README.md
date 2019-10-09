@@ -76,7 +76,7 @@ It uses nodemon for livereloading :peace-fingers:
 
 # FAQ 
 
- ## Where should I put the FrontEnd code? Is this a good backend for Angular o React or Vue or _whatever_ ?
+ ## Where should I put the FrontEnd code? Is this a good backend for Angular or React or Vue or _whatever_ ?
 
   [It's not a good idea to have node.js serving static assets a.k.a the frontend](https://softwareontheroad.com/nodejs-scalability-issues?utm_source=github&utm_medium=readme)
 
