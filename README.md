@@ -93,5 +93,3 @@ It uses nodemon for livereloading :peace-fingers:
   I know if you start moving layers into another technology, you will end up with your business/domain logic into npm packages, your routing layer will be pure AWS Lambda functions and your data layer a combination of DynamoDB, Redis, maybe redshift, and Agolia.
 
   Take a deep breath and go slowly, let the business grow and then scale up your product. You will need a team and talented developers anyway.
-
-##testing pull request-...
