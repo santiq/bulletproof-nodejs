@@ -82,7 +82,7 @@ It uses nodemon for livereloading :peace-fingers:
 
   Also, I don't wanna take part in frontend frameworks wars 😅
 
-  Just use the frontend framework you like the most _or hate the less_ it will work 😁
+  Just use the frontend framework you like the most _or hate the least_. It will work 😁
 
  ## Don't you think you can add X layer to do Y? Why do you still use express if the Serverless Framework is better and it's more reliable?
 
