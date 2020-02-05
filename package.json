@@ -50,7 +50,7 @@
     "method-override": "^3.0.0",
     "moment": "^2.23.0",
     "moment-timezone": "^0.5.23",
-    "mongoose": "^5.4.13",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "reflect-metadata": "^0.1.12",
     "typedi": "^0.8.0",
