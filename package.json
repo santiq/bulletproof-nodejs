@@ -14,6 +14,20 @@
     "lint:js": "npm run lint:eslint src/",
     "lint:fix": "npm run lint:js -- --fix"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,html,json,md}": [
+      "prettier --write"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/santiq/bulletproof-nodejs.git"
@@ -68,7 +82,9 @@
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^4.2.3",
     "jest": "^24.1.0",
+    "lint-staged": "^10.0.8",
     "nodemon": "^2.0.1",
     "prettier": "^1.17.0",
     "ts-jest": "^24.0.0",
