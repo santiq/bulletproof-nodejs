@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { IUser } from '../../interfaces/IUser';
 
 /**
- * Attach user to req.user
+ * Attach user to req.currentUser
  * @param {*} req Express req Object
  * @param {*} res  Express res Object
  * @param {*} next  Express next Function
