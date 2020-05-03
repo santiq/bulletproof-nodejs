@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const envFound = dotenv.config();
-if (!envFound) {
+if (envFound.error) {
   // This error should crash whole process
 
   throw new Error("⚠️  Couldn't find .env file  ⚠️");
@@ -59,7 +59,7 @@ export default {
    * Mailgun email credentials
    */
   emails: {
-    apiKey: 'API key from mailgun',
-    domain: 'Domain Name from mailgun'
+    apiKey: process.env.MAILGUN_API_KEY,
+    domain: process.env.MAILGUN_DOMAIN
   }
 };
