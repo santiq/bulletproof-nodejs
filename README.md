@@ -11,32 +11,23 @@ Maybe we can transform this into something useful, a more advanced example, just
 
 ## Development
 
-We use `node` version `10.15.0`
+Setup:
+```
+# If you don't have MongoDB installed and running, install Docker and docker-compose and run:
+docker-compose up
+
+# Install Packages
+yarn # or npm install
+
+# Start Server
+yarn start # or npm run start
 
 ```
-nvm install 10.15.0
-```
 
-```
-nvm use 10.15.0
-```
-
-The first time, you will need to run
-
-```
-npm install
-```
-
-Then just start the server with 
-
-```
-npm run start
-```
-It uses nodemon for livereloading :peace-fingers:
 
 # API Validation
  
- By using celebrate the req.body schema becomes clary defined at route level, so even frontend devs can read what an API endpoint expects without need to writting a documentation that can get outdated quickly.
+ By using celebrate the req.body schema becomes clearly defined at route level, so even frontend devs can read what an API endpoint expects without needing to write a documentation that can get outdated quickly.
 
  ```js
  route.post('/signup', 

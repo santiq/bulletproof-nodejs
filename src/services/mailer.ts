@@ -3,9 +3,7 @@ import { IUser } from '../interfaces/IUser';
 
 @Service()
 export default class MailerService {
-  constructor(
-    @Inject('emailClient') private emailClient
-  ) { }
+  constructor(@Inject('emailClient') private emailClient) {}
 
   public async SendWelcomeEmail(email) {
     /**
