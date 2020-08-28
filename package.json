@@ -43,7 +43,7 @@
     "eventemitter3": "^3.1.0",
     "express": "^4.16.2",
     "express-basic-auth": "^1.2.0",
-    "express-jwt": "^5.3.1",
+    "express-jwt": "^6.0.0",
     "jsonwebtoken": "^8.2.0",
     "lodash": "^4.17.13",
     "mailgun-js": "^0.22.0",
