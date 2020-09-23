@@ -11,14 +11,14 @@ Maybe we can transform this into something useful, a more advanced example, just
 
 ## Development
 
-We use `node` version ~`10.15.0`~ `v14.9.0`
+We use `node` version ~`10.15.0`~ `14.9.0`
 
 ```
-nvm install `v14.9.0`
+nvm install 14.9.0
 ```
 
 ```
-nvm use `v14.9.0`
+nvm use 14.9.0
 ```
 
 The first time, you will need to run
