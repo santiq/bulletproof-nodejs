@@ -13,8 +13,8 @@ export default ({ mongoConnection, models }: { mongoConnection; models: { name: 
     const agendaInstance = agendaFactory({ mongoConnection });
 
     Container.set('agendaInstance', agendaInstance);
-    Container.set('logger', LoggerInstance)
-    Container.set('emailClient', mailgun({ apiKey: config.emails.apiKey, domain: config.emails.domain }))
+    Container.set('logger', LoggerInstance);
+    Container.set('emailClient', mailgun({ apiKey: config.emails.apiKey, domain: config.emails.domain }));
 
     LoggerInstance.info('✌️ Agenda injected into container');
 
