@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - name: Mongoose
+    init: npm install && gp sync-done install
+    command: |
+      cp .env.example .env
+      mkdir -p /workspace/data && mongod --dbpath /workspace/data
+
+  - name: Nodemon
+    init: gp sync-await install
+    command: npm start
+    openMode: split-right
+
