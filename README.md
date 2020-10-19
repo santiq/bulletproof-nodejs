@@ -34,6 +34,17 @@ npm run start
 ```
 It uses nodemon for livereloading :peace-fingers:
 
+## Online one-click setup
+
+You can use Gitpod for the one click online setup. With a single click it will launch a workspace and automatically:
+
+- clone the `bulletproof-nodejs` repo.
+- install the dependencies.
+- run `cp .env.example .env`.
+- run `npm run start`.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+
 # API Validation
 
  By using celebrate the req.body schema becomes clary defined at route level, so even frontend devs can read what an API endpoint expects without need to writting a documentation that can get outdated quickly.
