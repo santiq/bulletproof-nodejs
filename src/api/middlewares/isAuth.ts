@@ -29,7 +29,6 @@ const isAuth = jwt({
   algorithms: [config.jwtAlgorithm], // JWT Algorithm
   userProperty: 'token', // Use req.token to store the JWT
   getToken: getTokenFromHeader, // How to extract the JWT from the request
-
 });
 
 export default isAuth;
