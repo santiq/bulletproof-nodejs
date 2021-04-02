@@ -48,7 +48,7 @@ export default {
    */
   agendash: {
     user: 'agendash',
-    password: '123456'
+    password: '123456',
   },
   /**
    * API configs
@@ -61,6 +61,6 @@ export default {
    */
   emails: {
     apiKey: process.env.MAILGUN_API_KEY,
-    domain: process.env.MAILGUN_DOMAIN
-  }
+    domain: process.env.MAILGUN_DOMAIN,
+  },
 };

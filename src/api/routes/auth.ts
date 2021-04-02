@@ -21,8 +21,8 @@ export default (app: Router) => {
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
-      const logger:Logger = Container.get('logger');
-      logger.debug('Calling Sign-Up endpoint with body: %o', req.body );
+      const logger: Logger = Container.get('logger');
+      logger.debug('Calling Sign-Up endpoint with body: %o', req.body);
       try {
         const authServiceInstance = Container.get(AuthService);
         const { user, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
@@ -43,7 +43,7 @@ export default (app: Router) => {
       }),
     }),
     async (req: Request, res: Response, next: NextFunction) => {
-      const logger:Logger = Container.get('logger');
+      const logger: Logger = Container.get('logger');
       logger.debug('Calling Sign-In endpoint with body: %o', req.body);
       try {
         const { email, password } = req.body;
@@ -51,7 +51,7 @@ export default (app: Router) => {
         const { user, token } = await authServiceInstance.SignIn(email, password);
         return res.json({ user, token }).status(200);
       } catch (e) {
-        logger.error('🔥 error: %o',  e );
+        logger.error('🔥 error: %o', e);
         return next(e);
       }
     },
@@ -67,7 +67,7 @@ export default (app: Router) => {
    * It's really annoying to develop that but if you had to, please use Redis as your data store
    */
   route.post('/logout', middlewares.isAuth, (req: Request, res: Response, next: NextFunction) => {
-    const logger:Logger = Container.get('logger');
+    const logger: Logger = Container.get('logger');
     logger.debug('Calling Sign-Out endpoint with body: %o', req.body);
     try {
       //@TODO AuthService.Logout(req.user) do some clever stuff

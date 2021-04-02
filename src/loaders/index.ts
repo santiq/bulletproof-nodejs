@@ -21,6 +21,7 @@ export default async ({ expressApp }) => {
   const userModel = {
     name: 'userModel',
     // Notice the require syntax and the '.default'
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     model: require('../models/user').default,
   };
 
