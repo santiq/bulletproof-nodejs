@@ -4,7 +4,8 @@ import { IUser } from '../interfaces/IUser';
 @Service()
 export default class MailerService {
   constructor(
-    @Inject('emailClient') private emailClient
+    @Inject('emailClient') private emailClient,
+    @Inject('emailDomain') private emailDomain,
   ) { }
 
   public async SendWelcomeEmail(email) {
@@ -14,13 +15,16 @@ export default class MailerService {
     // Added example for sending mail from mailgun
     const data = {
       from: 'Excited User <me@samples.mailgun.org>',
-      to: email, //your email address
+      to: [email],
       subject: 'Hello',
       text: 'Testing some Mailgun awesomness!'
     };
-
-    this.emailClient.messages().send(data);
-    return { delivered: 1, status: 'ok' };
+    try {
+      this.emailClient.messages.create(this.emailDomain, data);
+      return { delivered: 1, status: 'ok' };
+    } catch(e) {
+      return  { delivered: 0, status: 'error' };
+    }
   }
   public StartEmailSequence(sequence: string, user: Partial<IUser>) {
     if (!user.email) {
