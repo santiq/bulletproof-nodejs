@@ -47,7 +47,7 @@ You can use Gitpod for the one click online setup. With a single click it will l
 
 # API Validation
 
- By using celebrate the req.body schema becomes clary defined at route level, so even frontend devs can read what an API endpoint expects without need to writting a documentation that can get outdated quickly.
+ By using [celebrate](https://github.com/arb/celebrate), the req.body schema becomes cleary defined at route level, so even frontend devs can read what an API endpoint expects without needing to write documentation that can get outdated quickly.
 
  ```js
  route.post('/signup',
