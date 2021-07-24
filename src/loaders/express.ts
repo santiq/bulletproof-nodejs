@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import cors from 'cors';
 import { OpticMiddleware } from '@useoptic/express-middleware';
 import routes from '../api';
@@ -30,8 +29,8 @@ export default ({ app }: { app: express.Application }) => {
   // Maybe not needed anymore ?
   app.use(require('method-override')());
 
-  // Middleware that transforms the raw string of req.body into json
-  app.use(bodyParser.json());
+  // Transforms the raw string of req.body into json
+  app.use(express.json());
   // Load API routes
   app.use(config.api.prefix, routes());
 
