@@ -31,7 +31,7 @@
   "author": "Santiago Quinteros",
   "license": "ISC",
   "dependencies": {
-    "@useoptic/express-middleware": "^0.0.3",
+    "@useoptic/express-middleware": "^0.0.5",
     "agenda": "^3.1.0",
     "agendash": "^2.1.1",
     "argon2": "^0.27.0",
