@@ -47,7 +47,7 @@
     "express-jwt": "^6.0.0",
     "form-data": "^2.3.3",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mailgun.js": "3.3.0",
     "method-override": "^3.0.0",
     "moment": "^2.29.0",
