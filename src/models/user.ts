@@ -1,4 +1,4 @@
-import { IUser } from '../interfaces/IUser';
+import { IUser } from '@/interfaces/IUser';
 import mongoose from 'mongoose';
 
 const User = new mongoose.Schema(

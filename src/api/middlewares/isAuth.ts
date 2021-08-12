@@ -1,5 +1,5 @@
 import jwt from 'express-jwt';
-import config from '../../config';
+import config from '@/config';
 
 /**
  * We are assuming that the JWT will come in a header with the form
