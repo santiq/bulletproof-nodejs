@@ -1,5 +1,5 @@
-import config from '../config';
-import EmailSequenceJob from '../jobs/emailSequence';
+import config from '@/config';
+import EmailSequenceJob from '@/jobs/emailSequence';
 import Agenda from 'agenda';
 
 export default ({ agenda }: { agenda: Agenda }) => {

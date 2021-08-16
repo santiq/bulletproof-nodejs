@@ -3,7 +3,7 @@ import formData from 'form-data';
 import Mailgun from 'mailgun.js';
 import LoggerInstance from './logger';
 import agendaFactory from './agenda';
-import config from '../config';
+import config from '@/config';
 
 export default ({ mongoConnection, models }: { mongoConnection; models: { name: string; model: any }[] }) => {
   try {
