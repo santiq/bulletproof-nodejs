@@ -17,7 +17,7 @@ export default class UserSubscriber {
    * Use another approach like emit events to a queue (rabbitmq/aws sqs),
    * then save the latest in Redis/Memcache or something similar
    */
-  @On(events.user.signIn)
+  @On(events.user.SignIn)
   public onUserSignIn({ _id }: Partial<IUser>) {
     const Logger: Logger = Container.get('logger');
 
@@ -26,14 +26,14 @@ export default class UserSubscriber {
 
       UserModel.updateOne({ _id }, { $set: { lastLogin: new Date() } });
     } catch (e) {
-      Logger.error(`🔥 Error on event ${events.user.signIn}: %o`, e);
+      Logger.error(`🔥 Error on event ${events.user.SignIn}: %o`, e);
 
       // Throw the error so the process die (check src/app.ts)
       throw e;
     }
   }
 
-  @On(events.user.signUp)
+  @On(events.user.SignUp)
   public onUserSignUp({ name, email, _id }: Partial<IUser>) {
     const Logger: Logger = Container.get('logger');
 
@@ -47,7 +47,7 @@ export default class UserSubscriber {
       // Start your email sequence or whatever
       // MailService.startSequence('user.welcome', { email, name })
     } catch (e) {
-      Logger.error(`🔥 Error on event ${events.user.signUp}: %o`, e);
+      Logger.error(`🔥 Error on event ${events.user.SignUp}: %o`, e);
 
       // Throw the error so the process dies (check src/app.ts)
       throw e;

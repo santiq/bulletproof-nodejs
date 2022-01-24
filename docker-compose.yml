@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mongodb:
+    image: mongo:latest
+    networks:
+      - internal
+
+  api:
+    build: ./
+    networks:
+      - internal
+    depends_on:
+      - "mongodb"
+    volumes:
+      - ".env:/app/.env"
+    ports:
+      - "3000:3000"
+
+networks:
+  internal:
+    external: false

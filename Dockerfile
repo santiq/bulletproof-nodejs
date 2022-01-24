@@ -1,16 +1,18 @@
 FROM node:lts-alpine as builder
 
+WORKDIR /app
 COPY . /app
 
 RUN yarn install
-
 RUN yarn build
+
 
 FROM node:lts-alpine
 
 ENV NODE_ENV production
-COPY --from=builder /app/ /app
-
+WORKDIR /app
+COPY --from=builder /app/package.json /app
+COPY --from=builder /app/build /app/build
 RUN yarn install
 
-CMD [ "yarn", "start" ]
+CMD [ "yarn", "serve" ]

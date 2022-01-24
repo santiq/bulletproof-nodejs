@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "description": "Bulletproof node.js",
   "main": "src/app.ts",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "heroku-postbuild": "npm run build",
+    "serve": "node build/app.js",
     "start": "nodemon",
     "inspect": "nodemon --inspect src/app.ts",
     "test": "jest",
     "lint": "npm run lint:js ",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",
     "lint:js": "npm run lint:eslint src/",
-    "lint:fix": "npm run lint:js -- --fix"
+    "lint:fix": "npm run lint:js -- --fix",
+    "dockerize": "docker build . -t api"
   },
   "repository": {
     "type": "git",
@@ -74,6 +79,7 @@
     "prettier": "^2.5.1",
     "ts-jest": "^27.1.3",
     "ts-node": "^10.4.0",
+    "tsc-alias": "^1.5.0",
     "tsconfig-paths": "^3.12.0",
     "tslint": "^5.20.1",
     "typescript": "^4.5.5"
