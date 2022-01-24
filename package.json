@@ -11,7 +11,7 @@
     "heroku-postbuild": "npm run build",
     "serve": "node build/app.js",
     "start": "nodemon",
-    "inspect": "nodemon --inspect src/app.ts",
+    "inspect": "nodemon --inspect=0.0.0.0 src/app.ts",
     "test": "jest",
     "lint": "npm run lint:js ",
     "lint:eslint": "eslint --ignore-path .gitignore --ext .ts",

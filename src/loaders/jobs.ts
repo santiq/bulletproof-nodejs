@@ -1,6 +1,14 @@
 import config from '@/config';
 import EmailSequenceJob from '@/jobs/emailSequence';
-import Agenda, { JobPriority } from 'agenda';
+import Agenda from 'agenda';
+
+enum JobPriority {
+  highest = 20,
+  high = 10,
+  normal = 0,
+  low = -10,
+  lowest = -20
+}
 
 export default ({ agenda }: { agenda: Agenda }) => {
   agenda.define(

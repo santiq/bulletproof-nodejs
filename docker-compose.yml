@@ -6,14 +6,16 @@ services:
     networks:
       - internal
 
+
   api:
-    build: ./
-    networks:
-      - internal
+    build:
+      context: .
     depends_on:
       - "mongodb"
     volumes:
-      - ".env:/app/.env"
+      - "./.env:/app/.env"
+    networks:
+      - internal
     ports:
       - "3000:3000"
 
