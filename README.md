@@ -11,14 +11,14 @@ Maybe we can transform this into something useful, a more advanced example, just
 
 ## Development
 
-We use `node` version `14.9.0`
+We use `node` version `^16.0.0`
 
 ```
-nvm install 14.9.0
+nvm install lts/gallium
 ```
 
 ```
-nvm use 14.9.0
+nvm use lts/gallium
 ```
 
 The first time, you will need to run

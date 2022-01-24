@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-       - image: circleci/node:10.15
+       - image: circleci/node:16.13
        - image: circleci/mongo:latest
     steps:
       - checkout

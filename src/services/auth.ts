@@ -55,7 +55,7 @@ export default class AuthService {
       this.logger.silly('Sending welcome email');
       await this.mailer.SendWelcomeEmail(userRecord);
 
-      this.eventDispatcher.dispatch(events.user.signUp, { user: userRecord });
+      this.eventDispatcher.dispatch(events.user.SignIn, { user: userRecord });
 
       /**
        * @TODO This is not the best way to deal with this

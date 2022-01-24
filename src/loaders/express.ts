@@ -36,7 +36,7 @@ export default ({ app }: { app: express.Application }) => {
 
   // API Documentation
   app.use(OpticMiddleware({
-      enabled: process.env.NODE_ENV !== 'production',
+      enabled: config.env !== 'production',
   }));
 
   /// catch 404 and forward to error handler

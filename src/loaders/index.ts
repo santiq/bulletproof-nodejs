@@ -21,7 +21,7 @@ export default async ({ expressApp }) => {
   const userModel = {
     name: 'userModel',
     // Notice the require syntax and the '.default'
-    model: require('../models/user').default,
+    model: await import('../models/user'),
   };
 
   // It returns the agenda instance because it's needed in the subsequent loaders

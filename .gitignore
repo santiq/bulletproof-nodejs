@@ -11,3 +11,6 @@ yarn-debug.log*
 yarn-error.log*
 .env
 build
+.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
