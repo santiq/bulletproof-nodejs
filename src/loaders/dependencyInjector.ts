@@ -1,3 +1,4 @@
+import type { Connection } from 'mongoose';
 import { Container } from 'typedi';
 import formData from 'form-data';
 import Mailgun from 'mailgun.js';
@@ -5,7 +6,7 @@ import LoggerInstance from './logger';
 import agendaFactory from './agenda';
 import config from '@/config';
 
-export default ({ mongoConnection, models }: { mongoConnection; models: { name: string; model: any }[] }) => {
+export default ({ mongoConnection, models }: { mongoConnection: Connection; models: { name: string; model: any }[] }) => {
   try {
     models.forEach(m => {
       Container.set(m.name, m.model);
