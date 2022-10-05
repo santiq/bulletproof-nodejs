@@ -22,7 +22,7 @@ export default {
   databaseURL: process.env.MONGODB_URI,
 
   /**
-   * Your secret sauce
+   * Your secret source
    */
   jwtSecret: process.env.JWT_SECRET,
   jwtAlgorithm: process.env.JWT_ALGO,
