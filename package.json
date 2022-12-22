@@ -46,7 +46,7 @@
     "express-basic-auth": "^1.2.0",
     "express-jwt": "^6.0.0",
     "form-data": "^2.3.3",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
     "mailgun.js": "3.3.0",
     "method-override": "^3.0.0",
