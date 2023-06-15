@@ -1,3 +1,4 @@
+import { createSecretKey } from 'crypto';
 import dotenv from 'dotenv';
 
 // Set the NODE_ENV to 'development' by default
@@ -24,9 +25,7 @@ export default {
   /**
    * Your secret sauce
    */
-  jwtSecret: process.env.JWT_SECRET,
-  jwtAlgorithm: process.env.JWT_ALGO,
-
+  pasteoKey: createSecretKey(Buffer.from(process.env.PASTEO_KEY, "hex")),
   /**
    * Used by winston logger
    */

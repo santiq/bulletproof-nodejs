@@ -44,9 +44,7 @@
     "eventemitter3": "^4.0.7",
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
-    "express-jwt": "^6.0.0",
     "form-data": "^2.3.3",
-    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mailgun.js": "3.3.0",
     "method-override": "^3.0.0",
@@ -54,6 +52,7 @@
     "moment-timezone": "^0.5.31",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
+    "paseto": "^3.1.4",
     "reflect-metadata": "^0.1.13",
     "typedi": "^0.8.0",
     "winston": "^3.3.3"

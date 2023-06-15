@@ -1,13 +1,17 @@
-import jwt from 'express-jwt';
+import paseto from 'paseto';
+import { Container } from 'typedi';
+import mongoose from 'mongoose';
+import { IUser } from '@/interfaces/IUser';
+import { Logger } from 'winston';
+const { V3: { decrypt } } = paseto
 import config from '@/config';
-
 /**
- * We are assuming that the JWT will come in a header with the form
+ * We are assuming that the PASTEO will come in a header with the form
  *
- * Authorization: Bearer ${JWT}
+ * Authorization: Bearer ${PASTEO}
  *
  * But it could come in a query parameter with the name that you want like
- * GET https://my-bulletproof-api.com/stats?apiKey=${JWT}
+ * GET https://my-bulletproof-api.com/stats?apiKey=${PASTEO}
  * Luckily this API follow _common sense_ ergo a _good design_ and don't allow that ugly stuff
  */
 const getTokenFromHeader = req => {
@@ -24,12 +28,44 @@ const getTokenFromHeader = req => {
   return null;
 };
 
-const isAuth = jwt({
-  secret: config.jwtSecret, // The _secret_ to sign the JWTs
-  algorithms: [config.jwtAlgorithm], // JWT Algorithm
-  userProperty: 'token', // Use req.token to store the JWT
-  getToken: getTokenFromHeader, // How to extract the JWT from the request
+// from https://stackoverflow.com/a/54733755
+export function set<T>(obj: T, path: string | string[], value: unknown): T {
+  if (typeof obj !== 'object') {
+    return obj;
+  }
 
-});
+  if (typeof path === 'string') {
+    path = path.toString().match(/[^.[\]]+/g) || [];
+  }
+
+  path.slice(0, -1).reduce((a, c, i) => // Iterate all of them except the last one
+  {
+    return Object(a[c]) === a[c] // Does the key exist and is its value an object?
+
+      // Yes: then follow that path
+      ? a[c]
+      // No: create the key. Is the next key a potential array-index?
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      : a[c] = Math.abs(path[i + 1]) >> 0 === +path[i + 1]
+        ? [] // Yes: assign a new array object
+        : {};
+  }, // No: assign a new plain object
+    obj)[path[path.length - 1]] = value; // Finally assign the value to the last key
+  return obj; // Return the top-level object to allow chaining
+}
+;
+
+const isAuth = async (req, res, next) => {
+   try {
+   let token : string | null = getTokenFromHeader(req);
+  const payload = await decrypt(token, config.pasteoKey)
+  set(req,"token",payload);
+  setImmediate(next);  
+  } catch (e) {
+    setImmediate(next,e);
+  }
+  
+}
 
 export default isAuth;
